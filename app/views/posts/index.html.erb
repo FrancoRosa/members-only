@@ -1,15 +1,23 @@
 <h1>Posts</h1>
 
-<div>
-  <h3>What's in your mind?<h3>
-  <%= form_for :post, url: "/posts" do |f| %>
-    <%= f.text_area :post, class: "post_text", cols: 40, rows: 5 %><br />
-    <%= f.submit "share" %>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <div>
+    <h3>What's in your mind?<h3>
+    <%= form_for :post, url: "/posts" do |f| %>
+      <%= f.text_area :post, class: "post_text", cols: 40, rows: 5 %><br />
+      <%= f.submit "share" %>
+    <% end %>
+  </div>
+<% end %>
 
 <% @posts.each do |post| %>
-  <strong><%= post.user.name %></strong><br />
-  <small><%= post.post %></small>
-  <%= link_to "Delete post",post_path(post) ,method: :delete %>
+  <div>
+    <strong><%= post.user.name %></strong><br />
+    <small><%= post.post %></small><br />
+  <div>
+  
+  <% if user_signed_in? && current_user.email == post.user.email %>
+    <%= link_to "Delete post",post_path(post) ,method: :delete %> 
+  <% end %>
+
 <% end %>

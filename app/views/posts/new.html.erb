@@ -1,0 +1,6 @@
+<h1> Create a new Post </h1>
+<%= form_for @post do |post| %>
+  <%= post.label :post %>
+  <%= post.text_area :post %>
+  <%= post.submit %>
+<% end %>
