@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+
   def index
     @posts = Post.all.order("created_at DESC")
     @post = Post.new
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: 'Post was successfully created.'
     else
-      render @post
+      redirect_to root_path, alert: 'can\'t left a post form blank'
     end
   end
 
