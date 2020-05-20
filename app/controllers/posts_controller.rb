@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: %i[show index]
 
   def index
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.all.order('created_at DESC')
     @post = Post.new
     @users = User.all
   end
-  
+
   def show
     @post = Post.find(params[:id])
   end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_path, notice: "Post was deleted successfully."
+    redirect_to root_path, notice: 'Post was deleted successfully.'
   end
 
   private
