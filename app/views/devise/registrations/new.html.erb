@@ -8,32 +8,71 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, class: "control" %>
+        <div>
+          <%= f.label :name, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.text_field :name, autofocus: true, class: "input" %>
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="field">
-        <%= f.label :member_status %><br />
-        <%= f.text_field :member_status, class: "control" %>
-      </div>
-
-
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email", class: "control" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: "control" %>
+        <div>
+          <%= f.label :member_status, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.text_field :member_status, class: "input" %>
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "control" %>
+        <div>
+          <%= f.label :email, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.email_field :email, class: "input" %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div>
+          <%= f.label :password, class: "label" %>
+          <% if @minimum_password_length %>
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.password_field :password, class: "input" %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div>
+          <%= f.label :password_confirmation, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.password_field :password_confirmation, class: "input" %>
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="actions">
