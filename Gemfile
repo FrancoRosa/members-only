@@ -6,6 +6,7 @@ ruby '2.6.5'
 # CustomGems
 gem 'devise'
 gem 'rubocop'
+gem 'bulma-rails', '~> 0.8.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'

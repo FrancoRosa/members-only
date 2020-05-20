@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bulma";
+
+ .navbar {
+   a {
+     color: white;
+     text-decoration: none;
+
+     &:hover {
+       color: rgba(255, 255, 255, 0.701);
+     }
+   }
+
+   .control {
+     display: flex;
+     align-items: center;
+   }
+ }
+
+ .notification:not(:last-child) {
+   margin: 0;
+   padding: .5rem 1rem  
+ }
+
+ .m-b {
+   margin-bottom: 30px;
+ }

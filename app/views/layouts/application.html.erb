@@ -6,25 +6,65 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav>
-        <div>
-          <% if user_signed_in? %>
-            <%= link_to 'New post', new_post_path %>
-            <%= link_to current_user.name, edit_user_registration_path %>
-            <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to 'Sign up', new_user_registration_path %>
-            <%= link_to 'Log in', user_session_path %>
-          <% end %>
+
+    <% if flash[:notice] %>
+      <div class="notification is-primary">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <nav class="navbar is-danger m-b">
+      <div class="navbar-brand">
+        <%= link_to "Members Only", root_path, class: "navbar-item" %>
+  
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <% if user_signed_in? %>
+                <p class="control button is-success">
+                  <span class="icon">
+                    <i class="far fa-plus-square"></i>
+                  </span>
+                  <%= link_to 'New post', new_post_path %>
+                </p>
+                <p class="control">
+                  <%= link_to current_user.name, edit_user_registration_path %>
+                </p>
+                <p class="control">
+                    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+                </p>
+              <% else %>
+                <p class="control">
+                  <%= link_to 'Sign up', new_user_registration_path %>
+                </p>
+                <p class="control">
+                  <%= link_to 'Log in', user_session_path %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
