@@ -35,7 +35,8 @@
                 <small><%= post.user.email %></small>
               <% end %>
               <br>
-              <%= post.post %>
+              <%= post.post %><br />
+              <small><%= time_ago_in_words(post.created_at)%> </small>
             </p>
           </div>
           <nav class="level is-mobile">

@@ -1,13 +1,17 @@
 <div class="container">
   <div class="columns">
-    <div class="column is-one-quarter">
-      <%= render 'profile' %>
+    <div class="column is-one-fifth">
+      <% if user_signed_in? %>
+        <%= render 'profile' %>
+      <% end %>
     </div>
-    <div class="column is-half">
+    <div class="column">
       <%= render 'feed' %>
     </div>
-    <div class="column is-one-quarter">
-      who to follow
+    <div class="column is-one-third">
+      <% if user_signed_in? %>
+        <%= render 'who-to-follow' %>
+      <% end %>
     </div>
   </div>
 </div>
