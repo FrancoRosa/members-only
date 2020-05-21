@@ -1,0 +1,9 @@
+ <ul>
+  <% if resource.errors[source].any? %>
+    <% resource.errors[source].each do |msg| %>
+      <li class="error">
+        <%= msg %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
