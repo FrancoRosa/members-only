@@ -15,6 +15,15 @@
             <p class="control">
               <%= f.email_field :email, class: "input", autofocus: true %>
             </p>
+            <ul>
+              <% if resource.errors[:email].any? %>
+                <% resource.errors[:email].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
@@ -28,6 +37,15 @@
             <p class="control">
               <%= f.password_field :password, class: "input" %>
             </p>
+            <ul>
+              <% if resource.errors[:password].any? %>
+                <% resource.errors[:password].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>

@@ -12,6 +12,15 @@
         <p class="control">
           <%= f.email_field :email, class: "input", autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
         </p>
+        <ul>
+          <% if resource.errors[:email].any? %>
+            <% resource.errors[:email].each do |msg| %>
+              <li class="error">
+                <%= msg %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>

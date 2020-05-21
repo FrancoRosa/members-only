@@ -3,8 +3,6 @@
   <div class="column is-5">
     <h2 class="title">Forgot your password?</h2>
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
       <div class="field">
         <div>
           <%= f.label :email, class: "label" %>
@@ -14,6 +12,15 @@
             <p class="control">
               <%= f.email_field :email, autofocus: true, class: "input" %>
             </p>
+            <ul>
+              <% if resource.errors[:email].any? %>
+                <% resource.errors[:email].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>

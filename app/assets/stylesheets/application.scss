@@ -60,3 +60,13 @@
 .flex-start {
   align-items: flex-start;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+ul li.error {
+  list-style: circle;
+  margin-left: 30px;
+}

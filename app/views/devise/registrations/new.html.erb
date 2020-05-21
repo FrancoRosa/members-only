@@ -5,8 +5,6 @@
 <div class="level">
   <div class="level-item">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
       <div class="field">
         <div>
           <%= f.label :name, class: "label" %>
@@ -17,9 +15,15 @@
             <p class="control">
               <%= f.text_field :name, autofocus: true, class: "input" %>
             </p>
-            <% if resource[:name].errors.any? %>
-              <p>resource[:name].errors.</p>
-            <% end %>
+            <ul>
+              <% if resource.errors[:name].any? %>
+                <% resource.errors[:name].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
@@ -33,6 +37,15 @@
             <p class="control">
               <%= f.text_field :member_status, class: "input" %>
             </p>
+            <ul>
+              <% if resource.errors[:member_status].any? %>
+                <% resource.errors[:member_status].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
@@ -46,6 +59,15 @@
             <p class="control">
               <%= f.email_field :email, class: "input" %>
             </p>
+            <ul>
+              <% if resource.errors[:email].any? %>
+                <% resource.errors[:email].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
@@ -62,6 +84,15 @@
             <p class="control">
               <%= f.password_field :password, class: "input" %>
             </p>
+            <ul>
+              <% if resource.errors[:password].any? %>
+                <% resource.errors[:password].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
@@ -75,6 +106,15 @@
             <p class="control">
               <%= f.password_field :password_confirmation, class: "input" %>
             </p>
+            <ul>
+              <% if resource.errors[:password_confirmation].any? %>
+                <% resource.errors[:password_confirmation].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
