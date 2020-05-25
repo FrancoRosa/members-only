@@ -1,0 +1,98 @@
+<div class="columns is-mobile is-centered">
+  <h2 class="title">Sign up</h2>
+</div>
+
+<div class="level">
+  <div class="level-item">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="field">
+        <div>
+          <%= f.label :name, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+
+            <p class="control">
+              <%= f.text_field :name, autofocus: true, class: "input" %>
+            </p>
+              <%= render partial: "error-handler", locals: {source: :name } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div>
+          <%= f.label :member_status, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.text_field :member_status, class: "input" %>
+            </p>
+            <%= render partial: "error-handler", locals: {source: :member_status } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div>
+          <%= f.label :email, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.email_field :email, class: "input" %>
+            </p>
+            <%= render partial: "error-handler", locals: {source: :email } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div>
+          <%= f.label :password, class: "label" %>
+          <% if @minimum_password_length %>
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.password_field :password, class: "input" %>
+            </p>
+            <%= render partial: "error-handler", locals: {source: :password } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div>
+          <%= f.label :password_confirmation, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.password_field :password_confirmation, class: "input" %>
+            </p>
+            <%= render partial: "error-handler", locals: {source: :password_confirmation } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="rows">
+            <div class="row">
+              <%= f.submit "Sign up", class: "button is-info" %>
+            </div>
+            <div class="row">
+              <%= render "devise/shared/links" %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+    
+  </div>
+</div>
+
+
+

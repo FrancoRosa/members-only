@@ -1,0 +1,40 @@
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-5">
+    <h2 class="title">Forgot your password?</h2>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="field">
+        <div>
+          <%= f.label :email, class: "label" %>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= f.email_field :email, autofocus: true, class: "input" %>
+            </p>
+            <ul>
+              <% if resource.errors[:email].any? %>
+                <% resource.errors[:email].each do |msg| %>
+                  <li class="error">
+                    <%= msg %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="rows">
+        <div class="actions row">
+          <%= f.submit "Send me reset password instructions", class: "button is-info" %>
+        </div>
+        <div class="rows">
+          <%= render "devise/shared/links" %> 
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  

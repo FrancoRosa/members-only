@@ -1,0 +1,166 @@
+<div class="level">
+  <div class="level-item">
+    <div class="fixed-width">
+      <h2 class="title is-2">Edit <%= resource_name.to_s.humanize %></h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+        <div class="field">
+          <div>
+            <%= f.label :name, class: "label" %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <%= f.text_field :name, autofocus: true, class: "input" %>
+              </p>
+              <ul>
+                <% if resource.errors[:name].any? %>
+                  <% resource.errors[:name].each do |msg| %>
+                    <li class="error">
+                      <%= msg %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div>
+            <%= f.label :member_status, class: "label" %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <%= f.text_field :member_status, class: "input" %>
+              </p>
+              <ul>
+                <% if resource.errors[:member_status].any? %>
+                  <% resource.errors[:member_status].each do |msg| %>
+                    <li class="error">
+                      <%= msg %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div>
+            <%= f.label :email, class: "label" %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <%= f.email_field :email, class: "input" %>
+              </p>
+              <ul>
+                <% if resource.errors[:email].any? %>
+                  <% resource.errors[:email].each do |msg| %>
+                    <li class="error">
+                      <%= msg %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+        </div>
+
+
+        <div class="field">
+          <div>
+            <%= f.label :password, class: "label" %>
+            <i class="is-size-7">(leave blank if you don't want to change it)</i>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <%= f.password_field :password, class: "input" %>
+              </p>
+              <% if @minimum_password_length %>
+                <em><%= @minimum_password_length %> characters minimum</em>
+              <% end %>
+              <ul>
+                <% if resource.errors[:password].any? %>
+                  <% resource.errors[:password].each do |msg| %>
+                    <li class="error">
+                      <%= msg %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div>
+            <%= f.label :password_confirmation, class: "label" %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <%= f.password_field :password_confirmation, class: "input" %>
+              </p>
+              <ul>
+                <% if resource.errors[:password_confirmation].any? %>
+                  <% resource.errors[:password_confirmation].each do |msg| %>
+                    <li class="error">
+                      <%= msg %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div>
+            <%= f.label :current_password, class: "label" %>
+            <i class="is-size-7">(we need your current password to confirm your changes)</i>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <%= f.password_field :current_password, class: "input" %>
+              </p>
+              <ul>
+                <% if resource.errors[:current_password].any? %>
+                  <% resource.errors[:current_password].each do |msg| %>
+                    <li class="error">
+                      <%= msg %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions m-b">
+          <%= f.submit "Update", class: "button is-info" %>
+        </div>
+      <% end %>
+      <div class="mb-s">
+        <h3 class="title is-5">Cancel my account</h3>
+      </div>
+
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class: "button is-danger mb-s", method: :delete %></p>
+
+      <%= link_to "Back", :back, class: "is-block m-b" %>
+    </div>
+  </div>
+</div>

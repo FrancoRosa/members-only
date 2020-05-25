@@ -1,0 +1,15 @@
+<div class="m-b">
+  <h3>What's in your mind?<h3>
+  <%= form_for :post, url: "/posts" do |f| %>
+    <div class="field">
+      <div class="control">
+        <%= f.text_area :post, class: "textarea is-link", cols: 40, rows: 2 %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <%= f.submit "share", class: "button is-link" %>
+      </div>
+    </div>
+  <% end %>
+</div>
